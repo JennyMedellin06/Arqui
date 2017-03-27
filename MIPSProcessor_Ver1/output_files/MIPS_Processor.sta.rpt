@@ -1,0 +1,1197 @@
+TimeQuest Timing Analyzer report for MIPS_Processor
+Wed Mar 22 21:09:21 2017
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'clk'
+ 12. Slow Model Hold: 'clk'
+ 13. Slow Model Minimum Pulse Width: 'clk'
+ 14. Clock to Output Times
+ 15. Minimum Clock to Output Times
+ 16. Fast Model Setup Summary
+ 17. Fast Model Hold Summary
+ 18. Fast Model Recovery Summary
+ 19. Fast Model Removal Summary
+ 20. Fast Model Minimum Pulse Width Summary
+ 21. Fast Model Setup: 'clk'
+ 22. Fast Model Hold: 'clk'
+ 23. Fast Model Minimum Pulse Width: 'clk'
+ 24. Clock to Output Times
+ 25. Minimum Clock to Output Times
+ 26. Multicorner Timing Analysis Summary
+ 27. Clock to Output Times
+ 28. Minimum Clock to Output Times
+ 29. Setup Transfers
+ 30. Hold Transfers
+ 31. Report TCCS
+ 32. Report RSKM
+ 33. Unconstrained Paths
+ 34. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; MIPS_Processor                                                    ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C35F672C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-------------------------------------------------+
+; Slow Model Fmax Summary                         ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 85.73 MHz ; 85.73 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------+
+; Slow Model Setup Summary        ;
++-------+---------+---------------+
+; Clock ; Slack   ; End Point TNS ;
++-------+---------+---------------+
+; clk   ; -10.664 ; -3257.425     ;
++-------+---------+---------------+
+
+
++-------------------------------+
+; Slow Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.762 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.380 ; -358.380              ;
++-------+--------+-----------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clk'                                                                                                                                                                ;
++---------+---------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                             ; To Node                                                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+---------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -10.664 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.707     ;
+; -10.633 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.676     ;
+; -10.594 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.623     ;
+; -10.593 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.622     ;
+; -10.563 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.592     ;
+; -10.562 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.591     ;
+; -10.514 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.564     ;
+; -10.510 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.560     ;
+; -10.491 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.534     ;
+; -10.484 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.527     ;
+; -10.483 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.533     ;
+; -10.479 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.529     ;
+; -10.477 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.520     ;
+; -10.460 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.503     ;
+; -10.446 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.489     ;
+; -10.414 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.443     ;
+; -10.413 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.442     ;
+; -10.385 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.003     ; 11.418     ;
+; -10.381 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.424     ;
+; -10.364 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.016     ; 11.384     ;
+; -10.364 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.016     ; 11.384     ;
+; -10.361 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.404     ;
+; -10.354 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.003     ; 11.387     ;
+; -10.337 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 11.382     ;
+; -10.335 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[24] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.385     ;
+; -10.334 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.384     ;
+; -10.333 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.016     ; 11.353     ;
+; -10.333 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.016     ; 11.353     ;
+; -10.330 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.380     ;
+; -10.311 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.340     ;
+; -10.311 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.354     ;
+; -10.310 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.339     ;
+; -10.306 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 11.351     ;
+; -10.304 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[24] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.354     ;
+; -10.297 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.340     ;
+; -10.295 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 11.344     ;
+; -10.291 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.320     ;
+; -10.290 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.319     ;
+; -10.287 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 11.336     ;
+; -10.287 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 11.336     ;
+; -10.285 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.005      ; 11.326     ;
+; -10.283 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.006      ; 11.325     ;
+; -10.264 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 11.313     ;
+; -10.259 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.010      ; 11.305     ;
+; -10.256 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 11.305     ;
+; -10.256 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 11.305     ;
+; -10.254 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.005      ; 11.295     ;
+; -10.252 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.006      ; 11.294     ;
+; -10.231 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[27] ; clk          ; clk         ; 1.000        ; 0.009      ; 11.276     ;
+; -10.231 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.281     ;
+; -10.229 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[25] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.258     ;
+; -10.228 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.010      ; 11.274     ;
+; -10.227 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.277     ;
+; -10.211 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 11.256     ;
+; -10.211 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.261     ;
+; -10.208 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.251     ;
+; -10.207 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.257     ;
+; -10.205 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.003     ; 11.238     ;
+; -10.200 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[27] ; clk          ; clk         ; 1.000        ; 0.009      ; 11.245     ;
+; -10.198 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[25] ; clk          ; clk         ; 1.000        ; -0.007     ; 11.227     ;
+; -10.194 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.237     ;
+; -10.188 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.231     ;
+; -10.184 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.016     ; 11.204     ;
+; -10.184 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.016     ; 11.204     ;
+; -10.180 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 11.225     ;
+; -10.174 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.217     ;
+; -10.173 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.008     ; 11.201     ;
+; -10.160 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.005     ; 11.191     ;
+; -10.157 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 11.202     ;
+; -10.155 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[24] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.205     ;
+; -10.151 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.011      ; 11.198     ;
+; -10.147 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[24] ; clk          ; clk         ; 1.000        ; 0.015      ; 11.198     ;
+; -10.142 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.008     ; 11.170     ;
+; -10.129 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.005     ; 11.160     ;
+; -10.126 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[25] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.176     ;
+; -10.125 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[15] ; clk          ; clk         ; 1.000        ; -0.008     ; 11.153     ;
+; -10.120 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.011      ; 11.167     ;
+; -10.116 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[24] ; clk          ; clk         ; 1.000        ; 0.015      ; 11.167     ;
+; -10.115 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 11.164     ;
+; -10.107 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 11.156     ;
+; -10.107 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 11.156     ;
+; -10.105 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.005      ; 11.146     ;
+; -10.103 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.006      ; 11.145     ;
+; -10.102 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.003     ; 11.135     ;
+; -10.101 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.011      ; 11.148     ;
+; -10.097 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.011      ; 11.144     ;
+; -10.095 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[25] ; clk          ; clk         ; 1.000        ; 0.014      ; 11.145     ;
+; -10.094 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[15] ; clk          ; clk         ; 1.000        ; -0.008     ; 11.122     ;
+; -10.093 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[27] ; clk          ; clk         ; 1.000        ; 0.010      ; 11.139     ;
+; -10.082 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.003     ; 11.115     ;
+; -10.081 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.016     ; 11.101     ;
+; -10.081 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.016     ; 11.101     ;
+; -10.079 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.010      ; 11.125     ;
+; -10.077 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.006      ; 11.119     ;
+; -10.076 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 11.119     ;
+; -10.076 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.006      ; 11.118     ;
+; -10.074 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[27] ; clk          ; clk         ; 1.000        ; 0.013      ; 11.123     ;
+; -10.074 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.008     ; 11.102     ;
+; -10.072 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.008     ; 11.100     ;
+; -10.071 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.008      ; 11.115     ;
++---------+---------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clk'                                                                                                                                                                                        ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                      ; To Node                                                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.762 ; PC_Register:ProgramCounter|PCValue[6]                          ; PC_Register:ProgramCounter|PCValue[6]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.028      ;
+; 0.828 ; PC_Register:ProgramCounter|PCValue[5]                          ; PC_Register:ProgramCounter|PCValue[5]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.094      ;
+; 0.848 ; PC_Register:ProgramCounter|PCValue[2]                          ; PC_Register:ProgramCounter|PCValue[3]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.114      ;
+; 1.019 ; PC_Register:ProgramCounter|PCValue[3]                          ; PC_Register:ProgramCounter|PCValue[3]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.285      ;
+; 1.211 ; PC_Register:ProgramCounter|PCValue[5]                          ; PC_Register:ProgramCounter|PCValue[6]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.477      ;
+; 1.235 ; PC_Register:ProgramCounter|PCValue[2]                          ; PC_Register:ProgramCounter|PCValue[4]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.501      ;
+; 1.280 ; PC_Register:ProgramCounter|PCValue[4]                          ; PC_Register:ProgramCounter|PCValue[4]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.546      ;
+; 1.306 ; PC_Register:ProgramCounter|PCValue[2]                          ; PC_Register:ProgramCounter|PCValue[5]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.572      ;
+; 1.377 ; PC_Register:ProgramCounter|PCValue[2]                          ; PC_Register:ProgramCounter|PCValue[6]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.643      ;
+; 1.402 ; PC_Register:ProgramCounter|PCValue[3]                          ; PC_Register:ProgramCounter|PCValue[4]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.668      ;
+; 1.473 ; PC_Register:ProgramCounter|PCValue[3]                          ; PC_Register:ProgramCounter|PCValue[5]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.739      ;
+; 1.519 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.785      ;
+; 1.544 ; PC_Register:ProgramCounter|PCValue[3]                          ; PC_Register:ProgramCounter|PCValue[6]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.810      ;
+; 1.666 ; PC_Register:ProgramCounter|PCValue[4]                          ; PC_Register:ProgramCounter|PCValue[5]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 1.932      ;
+; 1.737 ; PC_Register:ProgramCounter|PCValue[4]                          ; PC_Register:ProgramCounter|PCValue[6]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 2.003      ;
+; 1.756 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.022      ;
+; 1.985 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.015      ; 2.266      ;
+; 1.998 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[20] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[20] ; clk          ; clk         ; 0.000        ; 0.001      ; 2.265      ;
+; 1.999 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[25] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[25] ; clk          ; clk         ; 0.000        ; -0.008     ; 2.257      ;
+; 2.055 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.321      ;
+; 2.072 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[24] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[24] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.127 ; RegisterFile:Register_File|Register:Register_t8|DataOutput[25] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[25] ; clk          ; clk         ; 0.000        ; -0.008     ; 2.385      ;
+; 2.182 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[24] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[24] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.448      ;
+; 2.198 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[23] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[23] ; clk          ; clk         ; 0.000        ; -0.011     ; 2.453      ;
+; 2.229 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[4]  ; RegisterFile:Register_File|Register:Register_k1|DataOutput[4]  ; clk          ; clk         ; 0.000        ; 0.016      ; 2.511      ;
+; 2.256 ; PC_Register:ProgramCounter|PCValue[3]                          ; RegisterFile:Register_File|Register:Register_s3|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.543      ;
+; 2.274 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[9]  ; RegisterFile:Register_File|Register:Register_t8|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.015      ; 2.555      ;
+; 2.274 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[9]  ; RegisterFile:Register_File|Register:Register_k0|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.015      ; 2.555      ;
+; 2.279 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; -0.008     ; 2.537      ;
+; 2.289 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.007      ; 2.562      ;
+; 2.292 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.007      ; 2.565      ;
+; 2.306 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[21] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[21] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.572      ;
+; 2.323 ; RegisterFile:Register_File|Register:Register_k0|DataOutput[23] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[23] ; clk          ; clk         ; 0.000        ; 0.002      ; 2.591      ;
+; 2.331 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[8]  ; clk          ; clk         ; 0.000        ; 0.013      ; 2.610      ;
+; 2.331 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[23] ; clk          ; clk         ; 0.000        ; 0.013      ; 2.610      ;
+; 2.331 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[27] ; clk          ; clk         ; 0.000        ; 0.013      ; 2.610      ;
+; 2.331 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[28] ; clk          ; clk         ; 0.000        ; 0.013      ; 2.610      ;
+; 2.331 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[11] ; clk          ; clk         ; 0.000        ; 0.013      ; 2.610      ;
+; 2.331 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[7]  ; clk          ; clk         ; 0.000        ; 0.013      ; 2.610      ;
+; 2.331 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[6]  ; clk          ; clk         ; 0.000        ; 0.013      ; 2.610      ;
+; 2.331 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[2]  ; clk          ; clk         ; 0.000        ; 0.013      ; 2.610      ;
+; 2.331 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[4]  ; clk          ; clk         ; 0.000        ; 0.013      ; 2.610      ;
+; 2.338 ; RegisterFile:Register_File|Register:Register_s3|DataOutput[23] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[23] ; clk          ; clk         ; 0.000        ; -0.006     ; 2.598      ;
+; 2.339 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[14] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.605      ;
+; 2.345 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s3|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.632      ;
+; 2.346 ; RegisterFile:Register_File|Register:Register_s3|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; 0.002      ; 2.614      ;
+; 2.366 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t0|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.653      ;
+; 2.369 ; RegisterFile:Register_File|Register:Register_s3|DataOutput[31] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[31] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.635      ;
+; 2.370 ; RegisterFile:Register_File|Register:Register_t8|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; -0.018     ; 2.618      ;
+; 2.373 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.660      ;
+; 2.373 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.660      ;
+; 2.373 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[1]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.660      ;
+; 2.383 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[13] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[13] ; clk          ; clk         ; 0.000        ; 0.004      ; 2.653      ;
+; 2.406 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[19] ; clk          ; clk         ; 0.000        ; -0.014     ; 2.658      ;
+; 2.407 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[19] ; clk          ; clk         ; 0.000        ; -0.014     ; 2.659      ;
+; 2.412 ; PC_Register:ProgramCounter|PCValue[2]                          ; RegisterFile:Register_File|Register:Register_s3|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.699      ;
+; 2.450 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[22] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[22] ; clk          ; clk         ; 0.000        ; 0.001      ; 2.717      ;
+; 2.462 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_t0|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.749      ;
+; 2.468 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.755      ;
+; 2.468 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.755      ;
+; 2.468 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[1]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.755      ;
+; 2.476 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[22] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[22] ; clk          ; clk         ; 0.000        ; -0.007     ; 2.735      ;
+; 2.521 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[19] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.015      ; 2.802      ;
+; 2.524 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[8]  ; RegisterFile:Register_File|Register:Register_t9|DataOutput[8]  ; clk          ; clk         ; 0.000        ; 0.007      ; 2.797      ;
+; 2.525 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[19] ; clk          ; clk         ; 0.000        ; -0.001     ; 2.790      ;
+; 2.534 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t9|DataOutput[14] ; clk          ; clk         ; 0.000        ; 0.014      ; 2.814      ;
+; 2.534 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t9|DataOutput[16] ; clk          ; clk         ; 0.000        ; 0.014      ; 2.814      ;
+; 2.534 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t9|DataOutput[25] ; clk          ; clk         ; 0.000        ; 0.014      ; 2.814      ;
+; 2.534 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t9|DataOutput[23] ; clk          ; clk         ; 0.000        ; 0.014      ; 2.814      ;
+; 2.534 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t9|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.014      ; 2.814      ;
+; 2.539 ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[28] ; clk          ; clk         ; 0.000        ; -0.007     ; 2.798      ;
+; 2.544 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[20] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[20] ; clk          ; clk         ; 0.000        ; 0.001      ; 2.811      ;
+; 2.547 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[14] ; clk          ; clk         ; 0.000        ; 0.026      ; 2.839      ;
+; 2.552 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[19] ; clk          ; clk         ; 0.000        ; -0.015     ; 2.803      ;
+; 2.552 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[19] ; clk          ; clk         ; 0.000        ; -0.015     ; 2.803      ;
+; 2.554 ; RegisterFile:Register_File|Register:Register_t8|DataOutput[17] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[17] ; clk          ; clk         ; 0.000        ; 0.002      ; 2.822      ;
+; 2.567 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.011      ; 2.844      ;
+; 2.567 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[15] ; clk          ; clk         ; 0.000        ; 0.011      ; 2.844      ;
+; 2.567 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.011      ; 2.844      ;
+; 2.579 ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.845      ;
+; 2.586 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.008      ; 2.860      ;
+; 2.588 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.008      ; 2.862      ;
+; 2.598 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[8]  ; clk          ; clk         ; 0.000        ; 0.013      ; 2.877      ;
+; 2.598 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[23] ; clk          ; clk         ; 0.000        ; 0.013      ; 2.877      ;
+; 2.598 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[27] ; clk          ; clk         ; 0.000        ; 0.013      ; 2.877      ;
+; 2.598 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[28] ; clk          ; clk         ; 0.000        ; 0.013      ; 2.877      ;
+; 2.598 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[11] ; clk          ; clk         ; 0.000        ; 0.013      ; 2.877      ;
+; 2.598 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[7]  ; clk          ; clk         ; 0.000        ; 0.013      ; 2.877      ;
+; 2.598 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[6]  ; clk          ; clk         ; 0.000        ; 0.013      ; 2.877      ;
+; 2.598 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[2]  ; clk          ; clk         ; 0.000        ; 0.013      ; 2.877      ;
+; 2.598 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[4]  ; clk          ; clk         ; 0.000        ; 0.013      ; 2.877      ;
+; 2.603 ; RegisterFile:Register_File|Register:Register_t1|DataOutput[23] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[23] ; clk          ; clk         ; 0.000        ; 0.002      ; 2.871      ;
+; 2.615 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[24] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[24] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.881      ;
+; 2.619 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_t0|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.906      ;
+; 2.619 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.906      ;
+; 2.619 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.906      ;
+; 2.619 ; PC_Register:ProgramCounter|PCValue[5]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[1]  ; clk          ; clk         ; 0.000        ; 0.021      ; 2.906      ;
+; 2.621 ; RegisterFile:Register_File|Register:Register_t1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.015      ; 2.902      ;
+; 2.629 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[16] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[16] ; clk          ; clk         ; 0.000        ; -0.008     ; 2.887      ;
+; 2.630 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[16] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[16] ; clk          ; clk         ; 0.000        ; -0.008     ; 2.888      ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clk'                                                                                                           ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                                         ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk                                                            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[2]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[2]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[3]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[3]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[4]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[4]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[5]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[5]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[6]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[6]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[10] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[10] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[11] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[11] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[12] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[12] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[13] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[13] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[14] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[14] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[15] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[15] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[17] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[17] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[18] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[18] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[19] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[19] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[20] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[20] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[21] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[21] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[22] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[22] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[23] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[23] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[24] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[24] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[25] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[25] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[26] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[26] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[28] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[28] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[29] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[29] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[30] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[30] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[31] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[31] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[10] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[10] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[11] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[11] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[12] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[12] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[13] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[13] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[14] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[14] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[15] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[15] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[17] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[17] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[18] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[18] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[20] ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Clock to Output Times                                                           ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------------+------------+--------+--------+------------+-----------------+
+; ALUResultOut[*]   ; clk        ; 17.796 ; 17.796 ; Rise       ; clk             ;
+;  ALUResultOut[0]  ; clk        ; 14.125 ; 14.125 ; Rise       ; clk             ;
+;  ALUResultOut[1]  ; clk        ; 15.789 ; 15.789 ; Rise       ; clk             ;
+;  ALUResultOut[2]  ; clk        ; 14.412 ; 14.412 ; Rise       ; clk             ;
+;  ALUResultOut[3]  ; clk        ; 15.158 ; 15.158 ; Rise       ; clk             ;
+;  ALUResultOut[4]  ; clk        ; 15.242 ; 15.242 ; Rise       ; clk             ;
+;  ALUResultOut[5]  ; clk        ; 16.241 ; 16.241 ; Rise       ; clk             ;
+;  ALUResultOut[6]  ; clk        ; 14.904 ; 14.904 ; Rise       ; clk             ;
+;  ALUResultOut[7]  ; clk        ; 15.159 ; 15.159 ; Rise       ; clk             ;
+;  ALUResultOut[8]  ; clk        ; 15.635 ; 15.635 ; Rise       ; clk             ;
+;  ALUResultOut[9]  ; clk        ; 15.624 ; 15.624 ; Rise       ; clk             ;
+;  ALUResultOut[10] ; clk        ; 15.744 ; 15.744 ; Rise       ; clk             ;
+;  ALUResultOut[11] ; clk        ; 15.340 ; 15.340 ; Rise       ; clk             ;
+;  ALUResultOut[12] ; clk        ; 15.968 ; 15.968 ; Rise       ; clk             ;
+;  ALUResultOut[13] ; clk        ; 16.271 ; 16.271 ; Rise       ; clk             ;
+;  ALUResultOut[14] ; clk        ; 16.078 ; 16.078 ; Rise       ; clk             ;
+;  ALUResultOut[15] ; clk        ; 16.938 ; 16.938 ; Rise       ; clk             ;
+;  ALUResultOut[16] ; clk        ; 16.099 ; 16.099 ; Rise       ; clk             ;
+;  ALUResultOut[17] ; clk        ; 16.384 ; 16.384 ; Rise       ; clk             ;
+;  ALUResultOut[18] ; clk        ; 16.964 ; 16.964 ; Rise       ; clk             ;
+;  ALUResultOut[19] ; clk        ; 16.347 ; 16.347 ; Rise       ; clk             ;
+;  ALUResultOut[20] ; clk        ; 16.293 ; 16.293 ; Rise       ; clk             ;
+;  ALUResultOut[21] ; clk        ; 17.273 ; 17.273 ; Rise       ; clk             ;
+;  ALUResultOut[22] ; clk        ; 16.211 ; 16.211 ; Rise       ; clk             ;
+;  ALUResultOut[23] ; clk        ; 16.505 ; 16.505 ; Rise       ; clk             ;
+;  ALUResultOut[24] ; clk        ; 16.963 ; 16.963 ; Rise       ; clk             ;
+;  ALUResultOut[25] ; clk        ; 17.139 ; 17.139 ; Rise       ; clk             ;
+;  ALUResultOut[26] ; clk        ; 16.722 ; 16.722 ; Rise       ; clk             ;
+;  ALUResultOut[27] ; clk        ; 17.156 ; 17.156 ; Rise       ; clk             ;
+;  ALUResultOut[28] ; clk        ; 17.796 ; 17.796 ; Rise       ; clk             ;
+;  ALUResultOut[29] ; clk        ; 17.047 ; 17.047 ; Rise       ; clk             ;
+;  ALUResultOut[30] ; clk        ; 17.393 ; 17.393 ; Rise       ; clk             ;
+;  ALUResultOut[31] ; clk        ; 17.176 ; 17.176 ; Rise       ; clk             ;
++-------------------+------------+--------+--------+------------+-----------------+
+
+
++---------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                   ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------------+------------+--------+--------+------------+-----------------+
+; ALUResultOut[*]   ; clk        ; 8.408  ; 8.408  ; Rise       ; clk             ;
+;  ALUResultOut[0]  ; clk        ; 9.927  ; 9.927  ; Rise       ; clk             ;
+;  ALUResultOut[1]  ; clk        ; 9.865  ; 9.865  ; Rise       ; clk             ;
+;  ALUResultOut[2]  ; clk        ; 9.382  ; 9.382  ; Rise       ; clk             ;
+;  ALUResultOut[3]  ; clk        ; 9.787  ; 9.787  ; Rise       ; clk             ;
+;  ALUResultOut[4]  ; clk        ; 9.079  ; 9.079  ; Rise       ; clk             ;
+;  ALUResultOut[5]  ; clk        ; 11.010 ; 11.010 ; Rise       ; clk             ;
+;  ALUResultOut[6]  ; clk        ; 9.077  ; 9.077  ; Rise       ; clk             ;
+;  ALUResultOut[7]  ; clk        ; 9.791  ; 9.791  ; Rise       ; clk             ;
+;  ALUResultOut[8]  ; clk        ; 8.612  ; 8.612  ; Rise       ; clk             ;
+;  ALUResultOut[9]  ; clk        ; 8.658  ; 8.658  ; Rise       ; clk             ;
+;  ALUResultOut[10] ; clk        ; 9.851  ; 9.851  ; Rise       ; clk             ;
+;  ALUResultOut[11] ; clk        ; 10.085 ; 10.085 ; Rise       ; clk             ;
+;  ALUResultOut[12] ; clk        ; 10.847 ; 10.847 ; Rise       ; clk             ;
+;  ALUResultOut[13] ; clk        ; 9.749  ; 9.749  ; Rise       ; clk             ;
+;  ALUResultOut[14] ; clk        ; 9.107  ; 9.107  ; Rise       ; clk             ;
+;  ALUResultOut[15] ; clk        ; 10.767 ; 10.767 ; Rise       ; clk             ;
+;  ALUResultOut[16] ; clk        ; 9.310  ; 9.310  ; Rise       ; clk             ;
+;  ALUResultOut[17] ; clk        ; 9.143  ; 9.143  ; Rise       ; clk             ;
+;  ALUResultOut[18] ; clk        ; 11.008 ; 11.008 ; Rise       ; clk             ;
+;  ALUResultOut[19] ; clk        ; 8.408  ; 8.408  ; Rise       ; clk             ;
+;  ALUResultOut[20] ; clk        ; 9.243  ; 9.243  ; Rise       ; clk             ;
+;  ALUResultOut[21] ; clk        ; 9.660  ; 9.660  ; Rise       ; clk             ;
+;  ALUResultOut[22] ; clk        ; 9.639  ; 9.639  ; Rise       ; clk             ;
+;  ALUResultOut[23] ; clk        ; 9.306  ; 9.306  ; Rise       ; clk             ;
+;  ALUResultOut[24] ; clk        ; 9.216  ; 9.216  ; Rise       ; clk             ;
+;  ALUResultOut[25] ; clk        ; 9.471  ; 9.471  ; Rise       ; clk             ;
+;  ALUResultOut[26] ; clk        ; 9.929  ; 9.929  ; Rise       ; clk             ;
+;  ALUResultOut[27] ; clk        ; 10.125 ; 10.125 ; Rise       ; clk             ;
+;  ALUResultOut[28] ; clk        ; 10.276 ; 10.276 ; Rise       ; clk             ;
+;  ALUResultOut[29] ; clk        ; 10.139 ; 10.139 ; Rise       ; clk             ;
+;  ALUResultOut[30] ; clk        ; 10.795 ; 10.795 ; Rise       ; clk             ;
+;  ALUResultOut[31] ; clk        ; 9.472  ; 9.472  ; Rise       ; clk             ;
++-------------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -4.304 ; -1265.275     ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Fast Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.352 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.380 ; -358.380              ;
++-------+--------+-----------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clk'                                                                                                                                                               ;
++--------+---------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                             ; To Node                                                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.304 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 5.343      ;
+; -4.290 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 5.329      ;
+; -4.265 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.292      ;
+; -4.264 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.291      ;
+; -4.251 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.278      ;
+; -4.250 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.290      ;
+; -4.250 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.277      ;
+; -4.237 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.277      ;
+; -4.236 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.276      ;
+; -4.223 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.263      ;
+; -4.218 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 5.257      ;
+; -4.215 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 5.261      ;
+; -4.211 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 5.257      ;
+; -4.201 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 5.247      ;
+; -4.197 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 5.243      ;
+; -4.187 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 5.226      ;
+; -4.184 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.002     ; 5.214      ;
+; -4.179 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.206      ;
+; -4.178 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.205      ;
+; -4.174 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 5.215      ;
+; -4.170 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.002     ; 5.200      ;
+; -4.168 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.007      ; 5.207      ;
+; -4.164 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.204      ;
+; -4.160 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 5.201      ;
+; -4.151 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.191      ;
+; -4.149 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.014     ; 5.167      ;
+; -4.148 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.005      ; 5.185      ;
+; -4.148 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.175      ;
+; -4.147 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.174      ;
+; -4.146 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.014     ; 5.164      ;
+; -4.141 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[24] ; clk          ; clk         ; 1.000        ; 0.016      ; 5.189      ;
+; -4.135 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.014     ; 5.153      ;
+; -4.134 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.005      ; 5.171      ;
+; -4.133 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.173      ;
+; -4.132 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.014     ; 5.150      ;
+; -4.130 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.173      ;
+; -4.129 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.156      ;
+; -4.129 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 5.175      ;
+; -4.128 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.155      ;
+; -4.127 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[24] ; clk          ; clk         ; 1.000        ; 0.016      ; 5.175      ;
+; -4.125 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 5.171      ;
+; -4.124 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 5.169      ;
+; -4.120 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.160      ;
+; -4.117 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 5.162      ;
+; -4.117 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 5.162      ;
+; -4.116 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.006      ; 5.154      ;
+; -4.116 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.159      ;
+; -4.114 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.154      ;
+; -4.110 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 5.155      ;
+; -4.103 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 5.148      ;
+; -4.103 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 5.148      ;
+; -4.102 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.006      ; 5.140      ;
+; -4.101 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.141      ;
+; -4.098 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 5.144      ;
+; -4.098 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.002     ; 5.128      ;
+; -4.097 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 5.138      ;
+; -4.096 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.007     ; 5.121      ;
+; -4.094 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 5.140      ;
+; -4.088 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 5.129      ;
+; -4.087 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[25] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.114      ;
+; -4.083 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 5.124      ;
+; -4.082 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.004     ; 5.110      ;
+; -4.082 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.007     ; 5.107      ;
+; -4.079 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 5.125      ;
+; -4.075 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.014      ; 5.121      ;
+; -4.073 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[25] ; clk          ; clk         ; 1.000        ; -0.005     ; 5.100      ;
+; -4.068 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.004     ; 5.096      ;
+; -4.067 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.002     ; 5.097      ;
+; -4.064 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[27] ; clk          ; clk         ; 1.000        ; 0.010      ; 5.106      ;
+; -4.063 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.014     ; 5.081      ;
+; -4.062 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.005      ; 5.099      ;
+; -4.060 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.014     ; 5.078      ;
+; -4.058 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.007      ; 5.097      ;
+; -4.057 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 5.098      ;
+; -4.056 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.007      ; 5.095      ;
+; -4.055 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[24] ; clk          ; clk         ; 1.000        ; 0.016      ; 5.103      ;
+; -4.053 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.093      ;
+; -4.050 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[27] ; clk          ; clk         ; 1.000        ; 0.010      ; 5.092      ;
+; -4.048 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[29] ; clk          ; clk         ; 1.000        ; -0.002     ; 5.078      ;
+; -4.046 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.089      ;
+; -4.044 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.087      ;
+; -4.044 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.007      ; 5.083      ;
+; -4.042 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.002      ; 5.076      ;
+; -4.042 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[26] ; clk          ; clk         ; 1.000        ; -0.010     ; 5.064      ;
+; -4.042 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.007      ; 5.081      ;
+; -4.041 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.084      ;
+; -4.040 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.010      ; 5.082      ;
+; -4.039 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.010      ; 5.081      ;
+; -4.039 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.008      ; 5.079      ;
+; -4.038 ; PC_Register:ProgramCounter|PCValue[5] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.009      ; 5.079      ;
+; -4.038 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 5.083      ;
+; -4.035 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 5.060      ;
+; -4.033 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.006      ; 5.071      ;
+; -4.032 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.075      ;
+; -4.032 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ; clk          ; clk         ; 1.000        ; -0.014     ; 5.050      ;
+; -4.032 ; PC_Register:ProgramCounter|PCValue[3] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[29] ; clk          ; clk         ; 1.000        ; 0.011      ; 5.075      ;
+; -4.031 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[26] ; clk          ; clk         ; 1.000        ; 0.005      ; 5.068      ;
+; -4.031 ; PC_Register:ProgramCounter|PCValue[4] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[24] ; clk          ; clk         ; 1.000        ; -0.007     ; 5.056      ;
+; -4.031 ; PC_Register:ProgramCounter|PCValue[6] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[31] ; clk          ; clk         ; 1.000        ; 0.005      ; 5.068      ;
+; -4.031 ; PC_Register:ProgramCounter|PCValue[2] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[28] ; clk          ; clk         ; 1.000        ; 0.013      ; 5.076      ;
++--------+---------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clk'                                                                                                                                                                                        ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                      ; To Node                                                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.352 ; PC_Register:ProgramCounter|PCValue[6]                          ; PC_Register:ProgramCounter|PCValue[6]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.504      ;
+; 0.371 ; PC_Register:ProgramCounter|PCValue[5]                          ; PC_Register:ProgramCounter|PCValue[5]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.523      ;
+; 0.378 ; PC_Register:ProgramCounter|PCValue[2]                          ; PC_Register:ProgramCounter|PCValue[3]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.530      ;
+; 0.461 ; PC_Register:ProgramCounter|PCValue[3]                          ; PC_Register:ProgramCounter|PCValue[3]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.613      ;
+; 0.509 ; PC_Register:ProgramCounter|PCValue[5]                          ; PC_Register:ProgramCounter|PCValue[6]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.661      ;
+; 0.518 ; PC_Register:ProgramCounter|PCValue[2]                          ; PC_Register:ProgramCounter|PCValue[4]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.670      ;
+; 0.553 ; PC_Register:ProgramCounter|PCValue[2]                          ; PC_Register:ProgramCounter|PCValue[5]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.705      ;
+; 0.571 ; PC_Register:ProgramCounter|PCValue[4]                          ; PC_Register:ProgramCounter|PCValue[4]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.723      ;
+; 0.588 ; PC_Register:ProgramCounter|PCValue[2]                          ; PC_Register:ProgramCounter|PCValue[6]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.740      ;
+; 0.596 ; PC_Register:ProgramCounter|PCValue[3]                          ; PC_Register:ProgramCounter|PCValue[4]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.748      ;
+; 0.631 ; PC_Register:ProgramCounter|PCValue[3]                          ; PC_Register:ProgramCounter|PCValue[5]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.783      ;
+; 0.666 ; PC_Register:ProgramCounter|PCValue[3]                          ; PC_Register:ProgramCounter|PCValue[6]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.818      ;
+; 0.691 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.843      ;
+; 0.711 ; PC_Register:ProgramCounter|PCValue[4]                          ; PC_Register:ProgramCounter|PCValue[5]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.863      ;
+; 0.746 ; PC_Register:ProgramCounter|PCValue[4]                          ; PC_Register:ProgramCounter|PCValue[6]                          ; clk          ; clk         ; 0.000        ; 0.000      ; 0.898      ;
+; 0.793 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.945      ;
+; 0.904 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[25] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[25] ; clk          ; clk         ; 0.000        ; -0.007     ; 1.049      ;
+; 0.908 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[20] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[20] ; clk          ; clk         ; 0.000        ; 0.002      ; 1.062      ;
+; 0.910 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.015      ; 1.077      ;
+; 0.927 ; RegisterFile:Register_File|Register:Register_t8|DataOutput[25] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[25] ; clk          ; clk         ; 0.000        ; -0.007     ; 1.072      ;
+; 0.935 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[24] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[24] ; clk          ; clk         ; 0.000        ; -0.001     ; 1.086      ;
+; 0.940 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.092      ;
+; 1.000 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[24] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[24] ; clk          ; clk         ; 0.000        ; -0.001     ; 1.151      ;
+; 1.006 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[23] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[23] ; clk          ; clk         ; 0.000        ; -0.011     ; 1.147      ;
+; 1.007 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[4]  ; RegisterFile:Register_File|Register:Register_k1|DataOutput[4]  ; clk          ; clk         ; 0.000        ; 0.015      ; 1.174      ;
+; 1.025 ; RegisterFile:Register_File|Register:Register_k0|DataOutput[23] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[23] ; clk          ; clk         ; 0.000        ; 0.002      ; 1.179      ;
+; 1.030 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; -0.007     ; 1.175      ;
+; 1.030 ; RegisterFile:Register_File|Register:Register_s3|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; 0.002      ; 1.184      ;
+; 1.032 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[9]  ; RegisterFile:Register_File|Register:Register_t8|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.016      ; 1.200      ;
+; 1.032 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[9]  ; RegisterFile:Register_File|Register:Register_k0|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.016      ; 1.200      ;
+; 1.046 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[14] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[14] ; clk          ; clk         ; 0.000        ; -0.001     ; 1.197      ;
+; 1.046 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.008      ; 1.206      ;
+; 1.050 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s1|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.008      ; 1.210      ;
+; 1.050 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[21] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[21] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.202      ;
+; 1.051 ; RegisterFile:Register_File|Register:Register_s3|DataOutput[31] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[31] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.203      ;
+; 1.076 ; RegisterFile:Register_File|Register:Register_s3|DataOutput[23] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[23] ; clk          ; clk         ; 0.000        ; -0.006     ; 1.222      ;
+; 1.085 ; RegisterFile:Register_File|Register:Register_t8|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; -0.018     ; 1.219      ;
+; 1.089 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[19] ; clk          ; clk         ; 0.000        ; -0.013     ; 1.228      ;
+; 1.089 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[19] ; clk          ; clk         ; 0.000        ; -0.013     ; 1.228      ;
+; 1.097 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[22] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[22] ; clk          ; clk         ; 0.000        ; 0.002      ; 1.251      ;
+; 1.105 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[22] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[22] ; clk          ; clk         ; 0.000        ; -0.006     ; 1.251      ;
+; 1.108 ; PC_Register:ProgramCounter|PCValue[3]                          ; RegisterFile:Register_File|Register:Register_s3|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.282      ;
+; 1.112 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[13] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[13] ; clk          ; clk         ; 0.000        ; 0.002      ; 1.266      ;
+; 1.123 ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.275      ;
+; 1.137 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[8]  ; clk          ; clk         ; 0.000        ; 0.013      ; 1.302      ;
+; 1.137 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[23] ; clk          ; clk         ; 0.000        ; 0.013      ; 1.302      ;
+; 1.137 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[27] ; clk          ; clk         ; 0.000        ; 0.013      ; 1.302      ;
+; 1.137 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[28] ; clk          ; clk         ; 0.000        ; 0.013      ; 1.302      ;
+; 1.137 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[11] ; clk          ; clk         ; 0.000        ; 0.013      ; 1.302      ;
+; 1.137 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[7]  ; clk          ; clk         ; 0.000        ; 0.013      ; 1.302      ;
+; 1.137 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[6]  ; clk          ; clk         ; 0.000        ; 0.013      ; 1.302      ;
+; 1.137 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[2]  ; clk          ; clk         ; 0.000        ; 0.013      ; 1.302      ;
+; 1.137 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[4]  ; clk          ; clk         ; 0.000        ; 0.013      ; 1.302      ;
+; 1.139 ; RegisterFile:Register_File|Register:Register_t1|DataOutput[28] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[28] ; clk          ; clk         ; 0.000        ; -0.006     ; 1.285      ;
+; 1.142 ; RegisterFile:Register_File|Register:Register_t1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.015      ; 1.309      ;
+; 1.148 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t0|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.322      ;
+; 1.149 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.323      ;
+; 1.149 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.323      ;
+; 1.149 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[1]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.323      ;
+; 1.150 ; RegisterFile:Register_File|Register:Register_t1|DataOutput[23] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[23] ; clk          ; clk         ; 0.000        ; 0.002      ; 1.304      ;
+; 1.151 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s3|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.325      ;
+; 1.153 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[8]  ; RegisterFile:Register_File|Register:Register_t9|DataOutput[8]  ; clk          ; clk         ; 0.000        ; 0.007      ; 1.312      ;
+; 1.154 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.306      ;
+; 1.159 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[19] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.015      ; 1.326      ;
+; 1.165 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[20] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[20] ; clk          ; clk         ; 0.000        ; 0.002      ; 1.319      ;
+; 1.166 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[31] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[31] ; clk          ; clk         ; 0.000        ; -0.002     ; 1.316      ;
+; 1.166 ; PC_Register:ProgramCounter|PCValue[2]                          ; RegisterFile:Register_File|Register:Register_s3|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.340      ;
+; 1.171 ; RegisterFile:Register_File|Register:Register_t8|DataOutput[17] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[17] ; clk          ; clk         ; 0.000        ; 0.001      ; 1.324      ;
+; 1.176 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[19] ; clk          ; clk         ; 0.000        ; -0.015     ; 1.313      ;
+; 1.178 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[19] ; clk          ; clk         ; 0.000        ; -0.015     ; 1.315      ;
+; 1.185 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[21] ; RegisterFile:Register_File|Register:Register_s2|DataOutput[21] ; clk          ; clk         ; 0.000        ; 0.020      ; 1.357      ;
+; 1.186 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[21] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[21] ; clk          ; clk         ; 0.000        ; 0.020      ; 1.358      ;
+; 1.188 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[24] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[24] ; clk          ; clk         ; 0.000        ; -0.001     ; 1.339      ;
+; 1.189 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_s0|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.008      ; 1.349      ;
+; 1.193 ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ; RegisterFile:Register_File|Register:Register_t8|DataOutput[19] ; clk          ; clk         ; 0.000        ; 0.008      ; 1.353      ;
+; 1.194 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[16] ; RegisterFile:Register_File|Register:Register_t1|DataOutput[16] ; clk          ; clk         ; 0.000        ; -0.007     ; 1.339      ;
+; 1.196 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[16] ; RegisterFile:Register_File|Register:Register_k0|DataOutput[16] ; clk          ; clk         ; 0.000        ; -0.007     ; 1.341      ;
+; 1.200 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[9]  ; RegisterFile:Register_File|Register:Register_s3|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.011      ; 1.363      ;
+; 1.202 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_t0|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.376      ;
+; 1.203 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.377      ;
+; 1.203 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.377      ;
+; 1.203 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_t1|DataOutput[1]  ; clk          ; clk         ; 0.000        ; 0.022      ; 1.377      ;
+; 1.216 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t9|DataOutput[14] ; clk          ; clk         ; 0.000        ; 0.015      ; 1.383      ;
+; 1.216 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t9|DataOutput[16] ; clk          ; clk         ; 0.000        ; 0.015      ; 1.383      ;
+; 1.216 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t9|DataOutput[25] ; clk          ; clk         ; 0.000        ; 0.015      ; 1.383      ;
+; 1.216 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t9|DataOutput[23] ; clk          ; clk         ; 0.000        ; 0.015      ; 1.383      ;
+; 1.216 ; PC_Register:ProgramCounter|PCValue[6]                          ; RegisterFile:Register_File|Register:Register_t9|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.015      ; 1.383      ;
+; 1.229 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[14] ; clk          ; clk         ; 0.000        ; 0.026      ; 1.407      ;
+; 1.229 ; RegisterFile:Register_File|Register:Register_t9|DataOutput[22] ; RegisterFile:Register_File|Register:Register_s3|DataOutput[22] ; clk          ; clk         ; 0.000        ; -0.004     ; 1.377      ;
+; 1.236 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[9]  ; RegisterFile:Register_File|Register:Register_s0|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.388      ;
+; 1.237 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[21] ; RegisterFile:Register_File|Register:Register_t2|DataOutput[21] ; clk          ; clk         ; 0.000        ; -0.018     ; 1.371      ;
+; 1.238 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[14] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.390      ;
+; 1.244 ; RegisterFile:Register_File|Register:Register_s3|DataOutput[27] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[27] ; clk          ; clk         ; 0.000        ; -0.004     ; 1.392      ;
+; 1.246 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[3]  ; clk          ; clk         ; 0.000        ; 0.011      ; 1.409      ;
+; 1.246 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[15] ; clk          ; clk         ; 0.000        ; 0.011      ; 1.409      ;
+; 1.246 ; PC_Register:ProgramCounter|PCValue[4]                          ; RegisterFile:Register_File|Register:Register_s0|DataOutput[9]  ; clk          ; clk         ; 0.000        ; 0.011      ; 1.409      ;
+; 1.247 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[25] ; RegisterFile:Register_File|Register:Register_t0|DataOutput[25] ; clk          ; clk         ; 0.000        ; -0.006     ; 1.393      ;
+; 1.249 ; RegisterFile:Register_File|Register:Register_t1|DataOutput[27] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[27] ; clk          ; clk         ; 0.000        ; -0.004     ; 1.397      ;
+; 1.253 ; RegisterFile:Register_File|Register:Register_s0|DataOutput[24] ; RegisterFile:Register_File|Register:Register_t9|DataOutput[24] ; clk          ; clk         ; 0.000        ; -0.001     ; 1.404      ;
+; 1.255 ; RegisterFile:Register_File|Register:Register_t0|DataOutput[23] ; RegisterFile:Register_File|Register:Register_k1|DataOutput[23] ; clk          ; clk         ; 0.000        ; -0.011     ; 1.396      ;
++-------+----------------------------------------------------------------+----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clk'                                                                                                           ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                                         ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk                                                            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[2]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[2]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[3]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[3]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[4]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[4]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[5]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[5]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[6]                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; PC_Register:ProgramCounter|PCValue[6]                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[10] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[10] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[11] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[11] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[12] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[12] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[13] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[13] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[14] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[14] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[15] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[15] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[17] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[17] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[18] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[18] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[19] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[19] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[20] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[20] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[21] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[21] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[22] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[22] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[23] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[23] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[24] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[24] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[25] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[25] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[26] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[26] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[27] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[28] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[28] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[29] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[29] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[2]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[30] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[30] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[31] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[31] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[3]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[4]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[5]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[6]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[7]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[8]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k0|DataOutput[9]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[0]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[10] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[10] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[11] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[11] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[12] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[12] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[13] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[13] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[14] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[14] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[15] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[15] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[16] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[16] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[17] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[17] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[18] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[18] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[19] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[1]  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; RegisterFile:Register_File|Register:Register_k1|DataOutput[20] ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Clock to Output Times                                                         ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------------+------------+-------+-------+------------+-----------------+
+; ALUResultOut[*]   ; clk        ; 8.756 ; 8.756 ; Rise       ; clk             ;
+;  ALUResultOut[0]  ; clk        ; 7.015 ; 7.015 ; Rise       ; clk             ;
+;  ALUResultOut[1]  ; clk        ; 7.699 ; 7.699 ; Rise       ; clk             ;
+;  ALUResultOut[2]  ; clk        ; 7.129 ; 7.129 ; Rise       ; clk             ;
+;  ALUResultOut[3]  ; clk        ; 7.562 ; 7.562 ; Rise       ; clk             ;
+;  ALUResultOut[4]  ; clk        ; 7.506 ; 7.506 ; Rise       ; clk             ;
+;  ALUResultOut[5]  ; clk        ; 7.964 ; 7.964 ; Rise       ; clk             ;
+;  ALUResultOut[6]  ; clk        ; 7.376 ; 7.376 ; Rise       ; clk             ;
+;  ALUResultOut[7]  ; clk        ; 7.502 ; 7.502 ; Rise       ; clk             ;
+;  ALUResultOut[8]  ; clk        ; 7.712 ; 7.712 ; Rise       ; clk             ;
+;  ALUResultOut[9]  ; clk        ; 7.669 ; 7.669 ; Rise       ; clk             ;
+;  ALUResultOut[10] ; clk        ; 7.779 ; 7.779 ; Rise       ; clk             ;
+;  ALUResultOut[11] ; clk        ; 7.582 ; 7.582 ; Rise       ; clk             ;
+;  ALUResultOut[12] ; clk        ; 7.912 ; 7.912 ; Rise       ; clk             ;
+;  ALUResultOut[13] ; clk        ; 8.021 ; 8.021 ; Rise       ; clk             ;
+;  ALUResultOut[14] ; clk        ; 7.898 ; 7.898 ; Rise       ; clk             ;
+;  ALUResultOut[15] ; clk        ; 8.345 ; 8.345 ; Rise       ; clk             ;
+;  ALUResultOut[16] ; clk        ; 7.939 ; 7.939 ; Rise       ; clk             ;
+;  ALUResultOut[17] ; clk        ; 8.095 ; 8.095 ; Rise       ; clk             ;
+;  ALUResultOut[18] ; clk        ; 8.313 ; 8.313 ; Rise       ; clk             ;
+;  ALUResultOut[19] ; clk        ; 8.027 ; 8.027 ; Rise       ; clk             ;
+;  ALUResultOut[20] ; clk        ; 8.060 ; 8.060 ; Rise       ; clk             ;
+;  ALUResultOut[21] ; clk        ; 8.517 ; 8.517 ; Rise       ; clk             ;
+;  ALUResultOut[22] ; clk        ; 8.054 ; 8.054 ; Rise       ; clk             ;
+;  ALUResultOut[23] ; clk        ; 8.132 ; 8.132 ; Rise       ; clk             ;
+;  ALUResultOut[24] ; clk        ; 8.356 ; 8.356 ; Rise       ; clk             ;
+;  ALUResultOut[25] ; clk        ; 8.439 ; 8.439 ; Rise       ; clk             ;
+;  ALUResultOut[26] ; clk        ; 8.310 ; 8.310 ; Rise       ; clk             ;
+;  ALUResultOut[27] ; clk        ; 8.484 ; 8.484 ; Rise       ; clk             ;
+;  ALUResultOut[28] ; clk        ; 8.756 ; 8.756 ; Rise       ; clk             ;
+;  ALUResultOut[29] ; clk        ; 8.483 ; 8.483 ; Rise       ; clk             ;
+;  ALUResultOut[30] ; clk        ; 8.592 ; 8.592 ; Rise       ; clk             ;
+;  ALUResultOut[31] ; clk        ; 8.533 ; 8.533 ; Rise       ; clk             ;
++-------------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                 ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------------+------------+-------+-------+------------+-----------------+
+; ALUResultOut[*]   ; clk        ; 4.510 ; 4.510 ; Rise       ; clk             ;
+;  ALUResultOut[0]  ; clk        ; 5.198 ; 5.198 ; Rise       ; clk             ;
+;  ALUResultOut[1]  ; clk        ; 5.178 ; 5.178 ; Rise       ; clk             ;
+;  ALUResultOut[2]  ; clk        ; 4.956 ; 4.956 ; Rise       ; clk             ;
+;  ALUResultOut[3]  ; clk        ; 5.186 ; 5.186 ; Rise       ; clk             ;
+;  ALUResultOut[4]  ; clk        ; 4.826 ; 4.826 ; Rise       ; clk             ;
+;  ALUResultOut[5]  ; clk        ; 5.662 ; 5.662 ; Rise       ; clk             ;
+;  ALUResultOut[6]  ; clk        ; 4.857 ; 4.857 ; Rise       ; clk             ;
+;  ALUResultOut[7]  ; clk        ; 5.174 ; 5.174 ; Rise       ; clk             ;
+;  ALUResultOut[8]  ; clk        ; 4.644 ; 4.644 ; Rise       ; clk             ;
+;  ALUResultOut[9]  ; clk        ; 4.628 ; 4.628 ; Rise       ; clk             ;
+;  ALUResultOut[10] ; clk        ; 5.212 ; 5.212 ; Rise       ; clk             ;
+;  ALUResultOut[11] ; clk        ; 5.278 ; 5.278 ; Rise       ; clk             ;
+;  ALUResultOut[12] ; clk        ; 5.663 ; 5.663 ; Rise       ; clk             ;
+;  ALUResultOut[13] ; clk        ; 5.202 ; 5.202 ; Rise       ; clk             ;
+;  ALUResultOut[14] ; clk        ; 4.821 ; 4.821 ; Rise       ; clk             ;
+;  ALUResultOut[15] ; clk        ; 5.665 ; 5.665 ; Rise       ; clk             ;
+;  ALUResultOut[16] ; clk        ; 4.923 ; 4.923 ; Rise       ; clk             ;
+;  ALUResultOut[17] ; clk        ; 4.903 ; 4.903 ; Rise       ; clk             ;
+;  ALUResultOut[18] ; clk        ; 5.625 ; 5.625 ; Rise       ; clk             ;
+;  ALUResultOut[19] ; clk        ; 4.510 ; 4.510 ; Rise       ; clk             ;
+;  ALUResultOut[20] ; clk        ; 4.929 ; 4.929 ; Rise       ; clk             ;
+;  ALUResultOut[21] ; clk        ; 5.129 ; 5.129 ; Rise       ; clk             ;
+;  ALUResultOut[22] ; clk        ; 5.101 ; 5.101 ; Rise       ; clk             ;
+;  ALUResultOut[23] ; clk        ; 4.921 ; 4.921 ; Rise       ; clk             ;
+;  ALUResultOut[24] ; clk        ; 4.864 ; 4.864 ; Rise       ; clk             ;
+;  ALUResultOut[25] ; clk        ; 5.009 ; 5.009 ; Rise       ; clk             ;
+;  ALUResultOut[26] ; clk        ; 5.235 ; 5.235 ; Rise       ; clk             ;
+;  ALUResultOut[27] ; clk        ; 5.325 ; 5.325 ; Rise       ; clk             ;
+;  ALUResultOut[28] ; clk        ; 5.360 ; 5.360 ; Rise       ; clk             ;
+;  ALUResultOut[29] ; clk        ; 5.362 ; 5.362 ; Rise       ; clk             ;
+;  ALUResultOut[30] ; clk        ; 5.589 ; 5.589 ; Rise       ; clk             ;
+;  ALUResultOut[31] ; clk        ; 5.009 ; 5.009 ; Rise       ; clk             ;
++-------------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                             ;
++------------------+-----------+-------+----------+---------+---------------------+
+; Clock            ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -10.664   ; 0.352 ; N/A      ; N/A     ; -1.380              ;
+;  clk             ; -10.664   ; 0.352 ; N/A      ; N/A     ; -1.380              ;
+; Design-wide TNS  ; -3257.425 ; 0.0   ; 0.0      ; 0.0     ; -358.38             ;
+;  clk             ; -3257.425 ; 0.000 ; N/A      ; N/A     ; -358.380            ;
++------------------+-----------+-------+----------+---------+---------------------+
+
+
++---------------------------------------------------------------------------------+
+; Clock to Output Times                                                           ;
++-------------------+------------+--------+--------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-------------------+------------+--------+--------+------------+-----------------+
+; ALUResultOut[*]   ; clk        ; 17.796 ; 17.796 ; Rise       ; clk             ;
+;  ALUResultOut[0]  ; clk        ; 14.125 ; 14.125 ; Rise       ; clk             ;
+;  ALUResultOut[1]  ; clk        ; 15.789 ; 15.789 ; Rise       ; clk             ;
+;  ALUResultOut[2]  ; clk        ; 14.412 ; 14.412 ; Rise       ; clk             ;
+;  ALUResultOut[3]  ; clk        ; 15.158 ; 15.158 ; Rise       ; clk             ;
+;  ALUResultOut[4]  ; clk        ; 15.242 ; 15.242 ; Rise       ; clk             ;
+;  ALUResultOut[5]  ; clk        ; 16.241 ; 16.241 ; Rise       ; clk             ;
+;  ALUResultOut[6]  ; clk        ; 14.904 ; 14.904 ; Rise       ; clk             ;
+;  ALUResultOut[7]  ; clk        ; 15.159 ; 15.159 ; Rise       ; clk             ;
+;  ALUResultOut[8]  ; clk        ; 15.635 ; 15.635 ; Rise       ; clk             ;
+;  ALUResultOut[9]  ; clk        ; 15.624 ; 15.624 ; Rise       ; clk             ;
+;  ALUResultOut[10] ; clk        ; 15.744 ; 15.744 ; Rise       ; clk             ;
+;  ALUResultOut[11] ; clk        ; 15.340 ; 15.340 ; Rise       ; clk             ;
+;  ALUResultOut[12] ; clk        ; 15.968 ; 15.968 ; Rise       ; clk             ;
+;  ALUResultOut[13] ; clk        ; 16.271 ; 16.271 ; Rise       ; clk             ;
+;  ALUResultOut[14] ; clk        ; 16.078 ; 16.078 ; Rise       ; clk             ;
+;  ALUResultOut[15] ; clk        ; 16.938 ; 16.938 ; Rise       ; clk             ;
+;  ALUResultOut[16] ; clk        ; 16.099 ; 16.099 ; Rise       ; clk             ;
+;  ALUResultOut[17] ; clk        ; 16.384 ; 16.384 ; Rise       ; clk             ;
+;  ALUResultOut[18] ; clk        ; 16.964 ; 16.964 ; Rise       ; clk             ;
+;  ALUResultOut[19] ; clk        ; 16.347 ; 16.347 ; Rise       ; clk             ;
+;  ALUResultOut[20] ; clk        ; 16.293 ; 16.293 ; Rise       ; clk             ;
+;  ALUResultOut[21] ; clk        ; 17.273 ; 17.273 ; Rise       ; clk             ;
+;  ALUResultOut[22] ; clk        ; 16.211 ; 16.211 ; Rise       ; clk             ;
+;  ALUResultOut[23] ; clk        ; 16.505 ; 16.505 ; Rise       ; clk             ;
+;  ALUResultOut[24] ; clk        ; 16.963 ; 16.963 ; Rise       ; clk             ;
+;  ALUResultOut[25] ; clk        ; 17.139 ; 17.139 ; Rise       ; clk             ;
+;  ALUResultOut[26] ; clk        ; 16.722 ; 16.722 ; Rise       ; clk             ;
+;  ALUResultOut[27] ; clk        ; 17.156 ; 17.156 ; Rise       ; clk             ;
+;  ALUResultOut[28] ; clk        ; 17.796 ; 17.796 ; Rise       ; clk             ;
+;  ALUResultOut[29] ; clk        ; 17.047 ; 17.047 ; Rise       ; clk             ;
+;  ALUResultOut[30] ; clk        ; 17.393 ; 17.393 ; Rise       ; clk             ;
+;  ALUResultOut[31] ; clk        ; 17.176 ; 17.176 ; Rise       ; clk             ;
++-------------------+------------+--------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                 ;
++-------------------+------------+-------+-------+------------+-----------------+
+; Data Port         ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-------------------+------------+-------+-------+------------+-----------------+
+; ALUResultOut[*]   ; clk        ; 4.510 ; 4.510 ; Rise       ; clk             ;
+;  ALUResultOut[0]  ; clk        ; 5.198 ; 5.198 ; Rise       ; clk             ;
+;  ALUResultOut[1]  ; clk        ; 5.178 ; 5.178 ; Rise       ; clk             ;
+;  ALUResultOut[2]  ; clk        ; 4.956 ; 4.956 ; Rise       ; clk             ;
+;  ALUResultOut[3]  ; clk        ; 5.186 ; 5.186 ; Rise       ; clk             ;
+;  ALUResultOut[4]  ; clk        ; 4.826 ; 4.826 ; Rise       ; clk             ;
+;  ALUResultOut[5]  ; clk        ; 5.662 ; 5.662 ; Rise       ; clk             ;
+;  ALUResultOut[6]  ; clk        ; 4.857 ; 4.857 ; Rise       ; clk             ;
+;  ALUResultOut[7]  ; clk        ; 5.174 ; 5.174 ; Rise       ; clk             ;
+;  ALUResultOut[8]  ; clk        ; 4.644 ; 4.644 ; Rise       ; clk             ;
+;  ALUResultOut[9]  ; clk        ; 4.628 ; 4.628 ; Rise       ; clk             ;
+;  ALUResultOut[10] ; clk        ; 5.212 ; 5.212 ; Rise       ; clk             ;
+;  ALUResultOut[11] ; clk        ; 5.278 ; 5.278 ; Rise       ; clk             ;
+;  ALUResultOut[12] ; clk        ; 5.663 ; 5.663 ; Rise       ; clk             ;
+;  ALUResultOut[13] ; clk        ; 5.202 ; 5.202 ; Rise       ; clk             ;
+;  ALUResultOut[14] ; clk        ; 4.821 ; 4.821 ; Rise       ; clk             ;
+;  ALUResultOut[15] ; clk        ; 5.665 ; 5.665 ; Rise       ; clk             ;
+;  ALUResultOut[16] ; clk        ; 4.923 ; 4.923 ; Rise       ; clk             ;
+;  ALUResultOut[17] ; clk        ; 4.903 ; 4.903 ; Rise       ; clk             ;
+;  ALUResultOut[18] ; clk        ; 5.625 ; 5.625 ; Rise       ; clk             ;
+;  ALUResultOut[19] ; clk        ; 4.510 ; 4.510 ; Rise       ; clk             ;
+;  ALUResultOut[20] ; clk        ; 4.929 ; 4.929 ; Rise       ; clk             ;
+;  ALUResultOut[21] ; clk        ; 5.129 ; 5.129 ; Rise       ; clk             ;
+;  ALUResultOut[22] ; clk        ; 5.101 ; 5.101 ; Rise       ; clk             ;
+;  ALUResultOut[23] ; clk        ; 4.921 ; 4.921 ; Rise       ; clk             ;
+;  ALUResultOut[24] ; clk        ; 4.864 ; 4.864 ; Rise       ; clk             ;
+;  ALUResultOut[25] ; clk        ; 5.009 ; 5.009 ; Rise       ; clk             ;
+;  ALUResultOut[26] ; clk        ; 5.235 ; 5.235 ; Rise       ; clk             ;
+;  ALUResultOut[27] ; clk        ; 5.325 ; 5.325 ; Rise       ; clk             ;
+;  ALUResultOut[28] ; clk        ; 5.360 ; 5.360 ; Rise       ; clk             ;
+;  ALUResultOut[29] ; clk        ; 5.362 ; 5.362 ; Rise       ; clk             ;
+;  ALUResultOut[30] ; clk        ; 5.589 ; 5.589 ; Rise       ; clk             ;
+;  ALUResultOut[31] ; clk        ; 5.009 ; 5.009 ; Rise       ; clk             ;
++-------------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1030243  ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1030243  ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 357   ; 357  ;
+; Unconstrained Output Ports      ; 32    ; 32   ;
+; Unconstrained Output Port Paths ; 6276  ; 6276 ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Mar 22 21:09:20 2017
+Info: Command: quartus_sta MIPS_Processor -c MIPS_Processor
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'MIPS_Processor.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -10.664
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):   -10.664     -3257.425 clk 
+Info (332146): Worst-case hold slack is 0.762
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.762         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380      -358.380 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -4.304
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -4.304     -1265.275 clk 
+Info (332146): Worst-case hold slack is 0.352
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.352         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380      -358.380 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 411 megabytes
+    Info: Processing ended: Wed Mar 22 21:09:21 2017
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
