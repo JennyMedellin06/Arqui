@@ -48,6 +48,7 @@ always@(OP) begin
 		BEQ:  		  ControlValues= 11'b0_000_00_01_001;
 		default:
 			ControlValues= 10'b0000000000;
+			holi
 		endcase
 end	
 	
